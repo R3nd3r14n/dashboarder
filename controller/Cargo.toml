@@ -15,3 +15,5 @@ rumqttc = "0.24"
 
 # Zpracování JSONu
 serde_json = "1.0"
+
+tracing = "0.1"

@@ -16,6 +16,7 @@ pub struct MqttConfig {
     pub client_cert_path: Option<String>,
     pub client_key_path: Option<String>,
     pub insecure_skip_verify: Option<bool>,
+    pub topic: Option<String>,
 }
 
 impl Default for MqttConfig {
@@ -30,6 +31,7 @@ impl Default for MqttConfig {
             client_cert_path: None,
             client_key_path: None,
             insecure_skip_verify: None,
+            topic: None,
         }
     }
 }

@@ -1,0 +1,12 @@
+[package]
+name = "mqtt-bridge-roomtemp"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+common_models = { path = "../../libs/common_models" }
+tokio = { version = "1.1", features = ["full"] }
+paho-mqtt = "0.12"
+serde_json = "1.0"
+tracing = "0.1"
+chrono = "0.4"

@@ -73,3 +73,20 @@ impl LogMessage {
         }
     }
 }
+
+use tracing_subscriber::{fmt, prelude::*, EnvFilter};
+
+pub fn init_logging() {
+    // Toto nastavení umožní ovládat detailnost logů přes ENV proměnnou RUST_LOG
+    // Např. RUST_LOG=debug cargo run ...
+    let filter = EnvFilter::try_from_default_env()
+        .unwrap_or_else(|_| EnvFilter::new("info"));
+
+    tracing_subscriber::registry()
+        .with(filter)
+        .with(fmt::layer()) // Logování do konzole
+        // Sem v budoucnu přidáme .with(MqttLayer::new())
+        .init();
+
+    tracing::info!("Logování inicializováno.");
+}
